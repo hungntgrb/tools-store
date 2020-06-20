@@ -62,14 +62,16 @@ header::before {
   max-height: 0;
   overflow: hidden;
   transition: 600ms max-height linear;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
 }
 .link {
-  width: min-content;
+  padding: 0 1rem;
   list-style: none;
   text-transform: capitalize;
   padding-top: 1rem;
+}
+.link:hover {
+  background-color: var(--white3);
+  color: var(--black3);
 }
 .show {
   max-height: 300px;
@@ -121,4 +123,36 @@ footer {
   letter-spacing: 0.1em;
   background-color: var(--black1);
   color: var(--white2);
+}
+/* ==============
+      GRID 
+================  */
+#nav {
+  display: grid;
+  grid-template-rows: auto auto;
+}
+.nav-links {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media screen and (min-width: 40em) {
+  #nav {
+    column-gap: 1rem;
+    grid-template-columns: min-content 1fr max-content;
+  }
+  #nav-toggle {
+    display: none;
+  }
+  .nav-links {
+    grid-template-columns: repeat(4, auto);
+    max-height: 200px;
+    grid-column: 3;
+  }
+  .link {
+    padding-top: 0;
+    display: grid;
+    place-content: center;
+  }
 }
