@@ -21,6 +21,12 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  padding: 0.8rem 0;
 }
 header {
   min-height: 100vh;
@@ -39,11 +45,19 @@ header::before {
   opacity: 0.8;
 }
 /* NAVBAR */
-#nav {
+nav {
   background-color: var(--black2);
   color: var(--white5);
   padding: 1rem;
   position: relative;
+}
+.sticky {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--black5);
 }
 .nav-logo {
   width: 50px;
@@ -61,7 +75,8 @@ header::before {
 .nav-links {
   max-height: 0;
   overflow: hidden;
-  transition: 600ms max-height linear;
+  transition: 400ms max-height linear;
+  transition-delay: 0s;
 }
 .link {
   padding: 0 1rem;
@@ -70,23 +85,25 @@ header::before {
   padding-top: 1rem;
 }
 .link:hover {
-  background-color: var(--white3);
+  background-color: var(--white2);
   color: var(--black3);
 }
 .show {
-  max-height: 300px;
+  max-height: 200px;
 }
 /* END NAVBAR */
 #home {
   position: relative;
   width: 100%;
-  height: 100%;
+  min-height: 80vh;
   display: grid;
-  place-items: center;
+  place-content: center;
   color: var(--white1);
+  padding: 0 2rem;
 }
 .heading {
   font-size: 3rem;
+  text-align: center;
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
@@ -95,11 +112,12 @@ header::before {
   grid-template-columns: 1fr minmax(40ch, 65ch) 1fr;
 }
 .explore {
+  max-width: 200px;
   padding: 1rem;
   background-color: transparent;
   border: 2px solid var(--white1);
   text-transform: uppercase;
-  margin-top: 1rem;
+  margin: 1rem auto 0;
 }
 .section {
   min-height: 100vh;
@@ -127,7 +145,7 @@ footer {
 /* ==============
       GRID 
 ================  */
-#nav {
+nav {
   display: grid;
   grid-template-rows: auto auto;
 }
@@ -138,7 +156,7 @@ footer {
 }
 
 @media screen and (min-width: 40em) {
-  #nav {
+  nav {
     column-gap: 1rem;
     grid-template-columns: min-content 1fr max-content;
   }
